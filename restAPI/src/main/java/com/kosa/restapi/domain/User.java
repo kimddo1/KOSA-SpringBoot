@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @JsonIgnoreProperties(value = {"password", "ssn"})
 public class User {
     private Integer id;
@@ -21,8 +21,8 @@ public class User {
     @Past(message = "등록일은 미래 날짜를 입력하실 수 있습니다.")
     private Date joinDate;
 
-//    @JsonIgnore
+    //@JsonIgnore
     private String password;
-//    @JsonIgnore
+    //@JsonIgnore
     private String ssn;
 }
