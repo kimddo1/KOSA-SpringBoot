@@ -2,16 +2,27 @@ server:
   port: 8081
 
 spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
   datasource:
-    url: jdbc:h2:mem:testdb
-    username: sa
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-    show-sql: true
-    defer-datasource-initialization: true
-  h2:
-    console:
-      enabled: true
-      settings:
-        web-allow-others: true
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    username: agent
+    password: 1234
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: create-drop
+#    show-sql: true
+#    defer-datasource-initialization: true
+#  h2:
+#    console:
+#      enabled: true
+#      settings:
+#        web-allow-others: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.kosa.restapi.domain

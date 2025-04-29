@@ -28,7 +28,7 @@ public class AdminUserController {
     }
 
     @GetMapping("/users")
-    public MappingJacksonValue retrieveAllUser(){
+    public MappingJacksonValue retrieveAllUser() {
         List<User> users = service.findAll();
         List<AdminUser> adminUsers = new ArrayList<>();
         AdminUser adminUser = null;
@@ -40,22 +40,23 @@ public class AdminUserController {
         }
 
         SimpleBeanPropertyFilter filter =
-                SimpleBeanPropertyFilter.filterOutAllExcept("id", "name", "joinDate", "password" ,"ssn");
-
+                SimpleBeanPropertyFilter.filterOutAllExcept("id", "name", "joinDate", "password", "ssn");
         FilterProvider filters = new SimpleFilterProvider().addFilter("UserInfo", filter);
 
-        MappingJacksonValue mapping = new MappingJacksonValue(adminUsers);
+        MappingJacksonValue mapping = new MappingJacksonValue(adminUser);
         mapping.setFilters(filters);
 
         return mapping;
     }
 
+
+
     @GetMapping("/users/{id}")
-    public MappingJacksonValue retrieveUser(@PathVariable int id){
+    public MappingJacksonValue retrieveUser(@PathVariable int id) {
         User user = service.findOne(id);
         AdminUser adminUser = new AdminUser();
 
-        if(user==null){
+        if(user == null) {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
         }else{
             BeanUtils.copyProperties(user, adminUser);
@@ -63,7 +64,6 @@ public class AdminUserController {
 
         SimpleBeanPropertyFilter filter =
                 SimpleBeanPropertyFilter.filterOutAllExcept("id", "name", "joinDate", "ssn");
-
         FilterProvider filters = new SimpleFilterProvider().addFilter("UserInfo", filter);
 
         MappingJacksonValue mapping = new MappingJacksonValue(adminUser);
@@ -74,7 +74,7 @@ public class AdminUserController {
 
     //HTTP Status code 제어
     @PostMapping("/users")
-    public ResponseEntity<User> createUser(@Valid @RequestBody User user){
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         User savedUser = service.save(user);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
@@ -85,19 +85,11 @@ public class AdminUserController {
     }
 
     @DeleteMapping("/users/{id}")
-    public void deleteUser(@PathVariable int id){
+    public void deleteUser(@PathVariable int id) {
         User user = service.deleteById(id);
 
-        if(user==null){
+        if(user == null) {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
         }
     }
 }
-
-
-
-
-
-
-
-
