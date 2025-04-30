@@ -42,8 +42,13 @@ public class SecurityConfig {
                         .loginPage("/loginForm")
                         .loginProcessingUrl("/login")
                         .defaultSuccessUrl("/main")
+                )
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/loginForm")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
                 );
-
         return http.build();
     }
 }

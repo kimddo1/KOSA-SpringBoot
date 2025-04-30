@@ -60,4 +60,9 @@ public class IndexController {
         userRepository.save(user);
         return "redirect:/loginForm";
     }
+
+    @GetMapping("/main")
+    public String main() {
+        return "main";
+    }
 }
