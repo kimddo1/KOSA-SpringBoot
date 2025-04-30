@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Spring Boot 설정 파일
+**/application.yaml
+**/application.yml

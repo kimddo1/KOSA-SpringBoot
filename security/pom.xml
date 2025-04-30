@@ -76,6 +76,12 @@
             <artifactId>tomcat-embed-jasper</artifactId>
             <version>10.1.19</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
