@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
     @Override
-    public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException{
-        System.out.println("userRequest : " + userRequest);
-        System.out.println("getClientRegistration : " + userRequest.getClientRegistration());
-        System.out.println("getAccessToken : " + userRequest.getAccessToken());
-        System.out.println("")
+    public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
+        System.out.println("userRequest = " + userRequest);
+        System.out.println("getClientRegistration: " + userRequest.getClientRegistration());
+        System.out.println("getAccessToken: " + userRequest.getAccessToken());
+        System.out.println("getAttributes: " + super.loadUser(userRequest).getAttributes());
+        return super.loadUser(userRequest);
     }
-
 }
