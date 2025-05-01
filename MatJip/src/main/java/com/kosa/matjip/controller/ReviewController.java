@@ -2,9 +2,7 @@ package com.kosa.matjip.controller;
 
 import com.kosa.matjip.domain.Review;
 import com.kosa.matjip.service.ReviewService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ReviewController {
@@ -17,5 +15,10 @@ public class ReviewController {
     @PostMapping("/review")
     public void createReview(@RequestBody Review review) {
         service.createReview(review);
+    }
+
+    @DeleteMapping("/review/{id}")
+    public void deleteReview(@PathVariable int id) {
+        service.deleteReview(id);
     }
 }

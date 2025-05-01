@@ -16,4 +16,8 @@ public class ReviewService {
         mapper.createReview(review);
     }
 
+    public void deleteReview(int id) {
+        mapper.deleteReview(id);
+    }
+
 }
