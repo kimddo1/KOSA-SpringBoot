@@ -37,4 +37,10 @@ public class RestaurantController {
         resService.update(restaurant);
     }
 
+    @DeleteMapping("/restaurant/{id}")
+    public void deleteRestaurant(@PathVariable int id) {
+        resService.delete(id);
+    }
+
+
 }

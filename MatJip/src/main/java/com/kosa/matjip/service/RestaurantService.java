@@ -31,4 +31,8 @@ public class RestaurantService {
         mapper.updateRestaurant(restaurant);
     }
 
+    public void delete(int id) {
+        mapper.deleteRestaurant(id);  // int만 넘김
+    }
+
 }

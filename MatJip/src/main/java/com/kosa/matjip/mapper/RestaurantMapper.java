@@ -18,7 +18,7 @@ public interface RestaurantMapper {
     // 맛집 수정
     void updateRestaurant(Restaurant restaurant);
     // 맛집 삭제
-    void deleteRestaurant(Restaurant restaurant);
+    void deleteRestaurant(int id);
     // 리뷰 작성
     void createReview(Review review, int restaurantId);
     // 리뷰 삭제
