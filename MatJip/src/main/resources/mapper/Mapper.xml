@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kosa.matjip.mapper.RestaurantMapper">
+
+    <resultMap id="restaurantMap" type="Restaurant">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="address" column="address"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <collection property="menus" resultMap="menuMap"/>
+        <collection property="reviews" resultMap="reviewMap"/>
+    </resultMap>
+
+    <resultMap id="menuMap" type="Menu">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="price" column="price"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <resultMap id="reviewMap" type="Review">
+        <result property="id" column="id"/>
+        <result property="content" column="content"/>
+        <result property="score" column="score"/>
+        <result property="createdAt" column="created_at"/>
+    </resultMap>
+
+
+    <select id="findAllRestaurant" resultType="Restaurant">
+        select * from Restaurant
+    </select>
+
+    <select id="findRestaurant" resultType="Restaurant" resultMap="restaurantMap">
+        select * from Restaurant where id = #{id}
+    </select>
+
+    <insert id="createRestaurant" parameterType="Restaurant">
+        insert into Restaurant(id, name, address, created_at, updated_at)
+        values(restaurant_seq.nextval, #{name}, #{address}, sysdate, sysdate)
+    </insert>
+
+    <insert id="createMenu" parameterType="Menu">
+        insert into Menu(id, name, price, created_at, updated_at)
+        values(restaurant_seq.nextval, #{name}, #{address}, sysdate, sysdate)
+    </insert>
+
+
+</mapper>
