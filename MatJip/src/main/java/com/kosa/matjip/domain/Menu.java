@@ -15,4 +15,5 @@ public class Menu {
     private Integer price;
     private Date createdAt;
     private Date updatedAt;
+    private Integer restaurantId;
 }

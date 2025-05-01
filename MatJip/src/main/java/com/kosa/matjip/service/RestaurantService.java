@@ -9,21 +9,22 @@ import java.util.List;
 
 @Service
 public class RestaurantService {
-    private RestaurantMapper resMapper;
+    private RestaurantMapper mapper;
 
-    public RestaurantService(RestaurantMapper resMapper) {
-        this.resMapper = resMapper;}
+    public RestaurantService(RestaurantMapper mapper) {
+        this.mapper = mapper;
+    }
 
     public List<Restaurant> findAll() {
-        return resMapper.findAllRestaurant();
+        return mapper.findAllRestaurant();
     }
 
     public Restaurant findOne(@PathVariable int id) {
-        return resMapper.findRestaurant(id);
+        return mapper.findRestaurant(id);
     }
 
     public void save(Restaurant restaurant) {
-        resMapper.createRestaurant(restaurant);
+        mapper.createRestaurant(restaurant);
     }
 
 }

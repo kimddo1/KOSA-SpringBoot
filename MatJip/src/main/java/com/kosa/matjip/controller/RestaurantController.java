@@ -17,20 +17,19 @@ public class RestaurantController {
         this.resService = restaurantService;
     }
 
-    @GetMapping("/restaurants")
+    @GetMapping("/restaurant")
     public List<Restaurant> findAllRestaurant() {
         return resService.findAll();
     }
 
-    @GetMapping("/restaurants/{id}")
+    @GetMapping("/restaurant/{id}")
     public Restaurant retrieveRes(@PathVariable int id) {
         return resService.findOne(id);
     }
 
-    @PostMapping("/restaurants")
+    @PostMapping("/restaurant")
     public void createRestaurant(@RequestBody Restaurant restaurant) {
         resService.save(restaurant);
-
     }
 
 }

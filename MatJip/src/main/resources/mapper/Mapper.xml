@@ -45,8 +45,8 @@
     </insert>
 
     <insert id="createMenu" parameterType="Menu">
-        insert into Menu(id, name, price, created_at, updated_at)
-        values(restaurant_seq.nextval, #{name}, #{address}, sysdate, sysdate)
+        insert into Menu(id, name, price, created_at, updated_at, restaurant_id)
+        values(menu_seq.nextval, #{name}, #{price}, sysdate, sysdate, #{restaurantId})
     </insert>
 
 
