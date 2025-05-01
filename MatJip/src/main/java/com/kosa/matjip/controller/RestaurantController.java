@@ -11,35 +11,35 @@ import java.util.List;
 
 @RestController
 public class RestaurantController {
-    private RestaurantService resService;
+    private RestaurantService service;
 
     public RestaurantController(RestaurantService restaurantService) {
-        this.resService = restaurantService;
+        this.service = restaurantService;
     }
 
     @GetMapping("/restaurant")
     public List<Restaurant> findAllRestaurant() {
-        return resService.findAll();
+        return service.findAll();
     }
 
     @GetMapping("/restaurant/{id}")
     public Restaurant retrieveRes(@PathVariable int id) {
-        return resService.findOne(id);
+        return service.findOne(id);
     }
 
     @PostMapping("/restaurant")
     public void createRestaurant(@RequestBody Restaurant restaurant) {
-        resService.save(restaurant);
+        service.save(restaurant);
     }
 
     @PutMapping("/restaurant")
     public void updateRestaurant(@RequestBody Restaurant restaurant) {
-        resService.update(restaurant);
+        service.update(restaurant);
     }
 
     @DeleteMapping("/restaurant/{id}")
     public void deleteRestaurant(@PathVariable int id) {
-        resService.delete(id);
+        service.delete(id);
     }
 
 

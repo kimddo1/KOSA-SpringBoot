@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MenuController {
-    private MenuService menuService;
+    private MenuService service;
 
     public MenuController(MenuService menuService) {
-        this.menuService = menuService;
+        this.service = menuService;
     }
 
     @PostMapping("/menu")
     public void createMenu(@RequestBody Menu menu) {
-        menuService.createMenu(menu);
+        service.createMenu(menu);
     }
 
 

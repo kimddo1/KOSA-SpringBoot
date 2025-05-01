@@ -13,4 +13,5 @@ public class Review {
     private String content;
     private double score;
     private Date createdAt;
+    private Integer restaurantId;
 }

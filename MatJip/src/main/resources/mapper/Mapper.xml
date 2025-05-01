@@ -63,6 +63,10 @@
         where id = #{id}
     </delete>
 
+        <insert id="createReview" parameterType="Review">
+            insert into Review(id, content, score, created_at, restaurant_id)
+            values(review_seq.nextval, #{content}, #{score}, sysdate, #{restaurantId})
+        </insert>
 
 
 

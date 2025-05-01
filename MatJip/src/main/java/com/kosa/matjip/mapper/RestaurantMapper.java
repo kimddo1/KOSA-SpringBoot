@@ -20,7 +20,7 @@ public interface RestaurantMapper {
     // 맛집 삭제
     void deleteRestaurant(int id);
     // 리뷰 작성
-    void createReview(Review review, int restaurantId);
+    void createReview(Review review);
     // 리뷰 삭제
     void deleteReview(int reviewId);
     // 맛집에 등록된 리뷰 가져오기
