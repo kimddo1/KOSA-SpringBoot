@@ -27,4 +27,8 @@ public class RestaurantService {
         mapper.createRestaurant(restaurant);
     }
 
+    public void update(Restaurant restaurant) {
+        mapper.updateRestaurant(restaurant);
+    }
+
 }

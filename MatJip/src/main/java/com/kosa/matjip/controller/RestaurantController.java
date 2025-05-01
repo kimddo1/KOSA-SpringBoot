@@ -32,4 +32,9 @@ public class RestaurantController {
         resService.save(restaurant);
     }
 
+    @PutMapping("/restaurant")
+    public void updateRestaurant(@RequestBody Restaurant restaurant) {
+        resService.update(restaurant);
+    }
+
 }

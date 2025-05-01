@@ -49,5 +49,15 @@
         values(menu_seq.nextval, #{name}, #{price}, sysdate, sysdate, #{restaurantId})
     </insert>
 
+    <update id="updateRestaurant" parameterType="Restaurant">
+        update Restaurant
+        set
+            name = #{name},
+            address = #{address},
+            updated_at = sysdate
+        where id = #{id}
+    </update>
+
+
 
 </mapper>
